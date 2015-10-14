@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Bind commands with implementing classes</comment>
+<entry key="#userlist">juz.commands.UserListCommand</entry>
+<entry key="#help">juz.commands.HelpCommand</entry>
+<entry key="#usercount">juz.commands.UserCountCommand</entry>
+</properties>
