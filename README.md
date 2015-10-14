@@ -44,11 +44,13 @@ Simple console application: ChatServer, ChatClient, ChatBot
 
 Фабрика команд маппит посредством java.reflection текст команды и исполняющий её класс,
 из файла *CommandMap.xml*:
+```html
     ...
     <entry key="#userlist">juz.commands.UserListCommand</entry>
     <entry key="#help">juz.commands.HelpCommand</entry>
     <entry key="#usercount">juz.commands.UserCountCommand</entry>
     ...
+```    
 При добавлении новых команд, необходимо написать класс-реализацию новой команды и смаппить в  *CommandMap.xml* с шаблоном.
 Можно добавлять псевдонимы команд, связав несколько вариантов с одним классом.
 
