@@ -2,16 +2,17 @@
 Simple console application: ChatServer, ChatClient, ChatBot
 ====
 #### Сборка:
-выполнить mvn install
+    mvn install
+
 
 #### Запуск сервера:
-mvn exec:java -Dexec.mainClass="juz.chat.ChatServer"
+    mvn exec:java -Dexec.mainClass="juz.chat.ChatServer"
 
 #### Запуск клиента:
-mvn exec:java -Dexec.mainClass="juz.chat.ChatServer"
+    mvn exec:java -Dexec.mainClass="juz.chat.ChatServer"
 
 #### Запуск ботов:
-mvn exec:java -Dexec.mainClass="juz.chat.ChatBot"
+    mvn exec:java -Dexec.mainClass="juz.chat.ChatBot"
 
 #### Настройка сервера *ChatServer.xml*:
     port - порт сервера
@@ -22,13 +23,13 @@ mvn exec:java -Dexec.mainClass="juz.chat.ChatBot"
     commandMapFileName - xml-файл с маппингом команды и реализующего её класса.
 
 #### Настройка клиента *ChatClient.xml*:
-host, 
-port
+    host, 
+    port
 
 #### Настройка ботов *ChatBot.xml*:
-  botCount - количество ботов (имена bot1, bot2,...)
-  msgCount - количество тестовых сообщений бота ("bot1_phrase_1",..."bot5_phrase_20",...)
-  delay - задержка отправки сообщений (в милисекундах).
+    botCount - количество ботов (имена bot1, bot2,...)
+    msgCount - количество тестовых сообщений бота ("bot1_phrase_1",..."bot5_phrase_20",...)
+    delay - задержка отправки сообщений (в милисекундах).
 
 Бот запускает пул потоков ChatClient, подменяя ему пользовательский поток ввода system.in, на ByteArrayInputStream с количеством тестовых сообщений.
 Выводы всех ботов пишут В ОДИН system.out, 
@@ -43,12 +44,12 @@ port
 
 Фабрика команд маппит посредством java.reflection текст команды и исполняющий её класс,
 из файла *CommandMap.xml*:
-  ...
-  <entry key="#userlist">juz.commands.UserListCommand</entry>
-  <entry key="#help">juz.commands.HelpCommand</entry>
-  <entry key="#usercount">juz.commands.UserCountCommand</entry>
-  ...
+    ...
+    <entry key="#userlist">juz.commands.UserListCommand</entry>
+    <entry key="#help">juz.commands.HelpCommand</entry>
+    <entry key="#usercount">juz.commands.UserCountCommand</entry>
+    ...
 При добавлении новых команд, необходимо написать класс-реализацию новой команды и смаппить в  CommandMap.xml с шаблоном.
 Можно добавлять псевдонимы команд, связав несколько вариантов с одним классом.
 
-Выход, командой exit.
+Выход, командой *exit*.
