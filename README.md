@@ -31,16 +31,16 @@ Simple console application: ChatServer, ChatClient, ChatBot
     msgCount - количество тестовых сообщений бота ("bot1_phrase_1",..."bot5_phrase_20",...)
     delay - задержка отправки сообщений (в милисекундах).
 
-Бот запускает пул потоков ChatClient, подменяя ему пользовательский поток ввода system.in, на ByteArrayInputStream с количеством тестовых сообщений.
+Бот запускает пул потоков *ChatClient*, подменяя ему пользовательский поток ввода system.in, на ByteArrayInputStream с количеством тестовых сообщений.
 Выводы всех ботов пишут В ОДИН system.out, 
 поэтому создается видимость, что сервер отдает медленно, на самом деле это не так - видно по консоли сервера - он справляется с нагрузкой.
 
-#### Класс CommandFactory.
+#### Класс *CommandFactory*.
 
 Для обработки и возможности добавления новых команд серверу реализована Фабрика команд.
 
-Все команды - это классы реализующие интерфейс IChatServerCommand 
-с методом doIt(String cmd, ChatServer srv),в который передается объект сервера (ChatServer).
+Все команды - это классы реализующие интерфейс *IChatServerCommand* 
+с методом *doIt(String cmd, ChatServer srv)*,в который передается объект сервера (*ChatServer*).
 
 Фабрика команд маппит посредством java.reflection текст команды и исполняющий её класс,
 из файла *CommandMap.xml*:
@@ -49,7 +49,7 @@ Simple console application: ChatServer, ChatClient, ChatBot
     <entry key="#help">juz.commands.HelpCommand</entry>
     <entry key="#usercount">juz.commands.UserCountCommand</entry>
     ...
-При добавлении новых команд, необходимо написать класс-реализацию новой команды и смаппить в  CommandMap.xml с шаблоном.
+При добавлении новых команд, необходимо написать класс-реализацию новой команды и смаппить в  *CommandMap.xml* с шаблоном.
 Можно добавлять псевдонимы команд, связав несколько вариантов с одним классом.
 
 Выход, командой *exit*.
